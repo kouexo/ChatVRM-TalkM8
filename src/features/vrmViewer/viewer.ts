@@ -89,12 +89,16 @@ export class Viewer {
     this._renderer.outputEncoding = THREE.sRGBEncoding;
     this._renderer.setSize(width, height);
     this._renderer.setPixelRatio(window.devicePixelRatio);
-
+    /*
+    キャラクターの初期位置調整
+    */
     // camera
+    // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     this._camera = new THREE.PerspectiveCamera(20.0, width / height, 0.1, 20.0);
-    this._camera.position.set(0, 1.3, 1.5);
-    this._cameraControls?.target.set(0, 1.3, 0);
+    this._camera.position.set(-0.175, 1.5, 4);  // カメラ座標(X左右, Y上下, Z奥行き)
+    this._cameraControls?.target.set(0, 0, 0);
     this._cameraControls?.update();
+    // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     // camera controls
     this._cameraControls = new OrbitControls(
       this._camera,
@@ -141,10 +145,10 @@ export class Viewer {
       const headWPos = headNode.getWorldPosition(new THREE.Vector3());
       this._camera?.position.set(
         this._camera.position.x,
-        headWPos.y,
+        this._camera.position.y,
         this._camera.position.z
       );
-      this._cameraControls?.target.set(headWPos.x, headWPos.y, headWPos.z);
+      this._cameraControls?.target.set(headWPos.x, headWPos.y - 0.4, headWPos.z); // yをオフセットするとキャラ位置が上下する。
       this._cameraControls?.update();
     }
   }
