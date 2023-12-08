@@ -1,64 +1,6 @@
-# ChatVRM
+ChatVRMをもとにマルチモーダル対話システムの構築を行いました。
+Node-REDとのwebsocket通信を行い、可能にしました。
+ローカルで画像認識モデルを実行、処理しNode-REDに送信。その結果をwebsocketで受け取りOpenAI APIに処理を送信しています。
 
-ChatVRMはブラウザで簡単に3Dキャラクターと会話ができるデモアプリケーションです。
-
-VRMファイルをインポートしてキャラクターに合わせた声の調整や、感情表現を含んだ返答文の生成などを行うことができます。
-
-ChatVRMの各機能は主に以下の技術を使用しています。
-
-- ユーザーの音声の認識
-    - [Web Speech API(SpeechRecognition)](https://developer.mozilla.org/ja/docs/Web/API/SpeechRecognition)
-- 返答文の生成
-    - [ChatGPT API](https://platform.openai.com/docs/api-reference/chat)
-- 読み上げ音声の生成
-    - [Koemotion/Koeiromap API](https://koemotion.rinna.co.jp/)
-- 3Dキャラクターの表示
-    - [@pixiv/three-vrm](https://github.com/pixiv/three-vrm)
-
-
-## デモ
-
-Glitchでデモを公開しています。
-
-[https://chatvrm.glitch.me](https://chatvrm.glitch.me)
-
-## 実行
-ローカル環境で実行する場合はこのリポジトリをクローンするか、ダウンロードしてください。
-
-```bash
-git clone git@github.com:pixiv/ChatVRM.git
-```
-
-必要なパッケージをインストールしてください。
-```bash
-npm install
-```
-
-パッケージのインストールが完了した後、以下のコマンドで開発用のWebサーバーを起動します。
-```bash
-npm run dev
-```
-
-実行後、以下のURLにアクセスして動作を確認して下さい。
-
-[http://localhost:3000](http://localhost:3000) 
-
-
----
-
-## ChatGPT API
-
-ChatVRMでは返答文の生成にChatGPT APIを使用しています。
-
-ChatGPT APIの仕様や利用規約については以下のリンクや公式サイトをご確認ください。
-
-- [https://platform.openai.com/docs/api-reference/chat](https://platform.openai.com/docs/api-reference/chat)
-- [https://openai.com/policies/api-data-usage-policies](https://openai.com/policies/api-data-usage-policies)
-
-
-## Koeiromap API
-ChatVRMでは返答文の音声読み上げにKoemotionのKoeiromap APIを使用しています。
-
-Koeiromap APIの仕様や利用規約については以下のリンクや公式サイトをご確認ください。
-
-- [https://koemotion.rinna.co.jp/](https://koemotion.rinna.co.jp/)
+詳細はこちらから 
+https://3up-tec.jp/2023/10/06/%e3%82%b9%e3%83%aa%e3%83%bc%e3%82%a2%e3%83%83%e3%83%97%e3%83%bb%e3%83%86%e3%82%af%e3%83%8e%e3%83%ad%e3%82%b8%e3%83%bc%e3%80%80%e5%ae%9f%e7%bf%92%e2%85%b1/
